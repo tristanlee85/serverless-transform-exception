@@ -19,6 +19,19 @@ export default new Router()
       },
     });
   })
+  .match('/redirect-to-error', {
+    headers: {
+      set_response_headers: {
+        location: '%{scheme}://%{host}/edgio-error',
+      },
+    },
+    url: {
+      follow_redirects: true,
+    },
+    response: {
+      set_status_code: 302,
+    },
+  })
   .always({
     caching: {
       bypass_cache: true,

@@ -28,6 +28,7 @@ const statusOra = ora({
 const statusText = [
   '[/serverless-proxy-exception] Successful request count: 0',
   '[/origin-proxy-exception] Successful request count: 0',
+  '[/redirect-to-error] Successful request count: 0',
 ];
 
 async function makeRequest(url, idx) {
@@ -64,4 +65,8 @@ makeRequest(
 makeRequest(
   'https://tristan-lee-serverless-transform-catch-default.glb.edgio.link/origin-proxy-exception',
   1
+);
+makeRequest(
+  'https://tristan-lee-serverless-transform-catch-default.glb.edgio.link/redirect-to-error',
+  2
 );
